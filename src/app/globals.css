@@ -24,6 +24,7 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb)); */
+  print-color-adjust: exact;
 }
 
 ul {
@@ -35,4 +36,9 @@ ul {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+@page {
+  size: a4 portrait;
+  margin: .12in .1in;
 }
