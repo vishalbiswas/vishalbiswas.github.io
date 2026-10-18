@@ -1,0 +1,51 @@
+---
+const skills = [
+  {
+    label: "Databases",
+    description: "DynamoDB, PostgreSQL, MongoDB, MySQL",
+  },
+  {
+    label: "Backend",
+    description: "NodeJS, Python (Flask), Core Java",
+  },
+  {
+    label: "Frontend",
+    description: "Vue, Nuxt, React, Next.js, Angular",
+  },
+  {
+    label: "Cloud (AWS)",
+    description:
+      "Lambda, CloudFormation, API Gateway, CloudFront, SQS, EKS, RDS, EventBridge, SES, EC2, Step Functions, Route 53, S3, OpenSearch, ElastiCache",
+  },
+  // {
+  //   label: "AI Assistance",
+  //   description: "Amazon Kiro, Claude Code, GitHub Copilot, Google Gemini",
+  // },
+  // {
+  //   label: "Mobile",
+  //   description: "Android, Kotlin, NativeScript",
+  // },
+  // {
+  //   label: "Tools",
+  //   description: "GitHub Actions, Jira, ServiceNavigator, BrowserStack, CMS",
+  // },
+  // {
+  //   label: "Industries",
+  //   description:
+  //     "Heavy Equipment, Marketing, Mutual Funds, Education, Social Networking",
+  // },
+];
+---
+<table class="border border-black rounded-2xl">
+  <tbody>
+    {
+      skills.map((row) => (
+        <tr>
+          <th class="border border-black px-2 py-1 text-left">{row.label}</th>
+          <td class="border border-black px-2 py-1">{row.description}</td>
+        </tr>
+      ))
+    }
+    <tr> </tr>
+  </tbody>
+</table>

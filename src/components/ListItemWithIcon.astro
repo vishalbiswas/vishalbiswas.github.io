@@ -1,0 +1,9 @@
+---
+const { label } = Astro.props;
+---
+<div>
+  <slot name="icon">
+    <span class="text-gray-500 mr-2">{label}</span>
+  </slot>
+  <slot />
+</div>

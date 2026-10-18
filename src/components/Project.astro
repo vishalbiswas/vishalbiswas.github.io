@@ -1,0 +1,40 @@
+---
+import type { Responsibility } from "./Responsibility.astro";
+import H3 from "./typography/H3.astro";
+import H4 from "./typography/H4.astro";
+import ResponsibilityEl from "./Responsibility.astro";
+
+export type Project = {
+  clientName: string;
+  responsibilities: Responsibility[];
+  skills?: string[];
+};
+
+interface Props {
+  sequenceNumber: number;
+  project: Project;
+}
+
+const {
+  project: { clientName, responsibilities, skills },
+  sequenceNumber,
+}: Props = Astro.props;
+
+const breakAfter = sequenceNumber === 2 ? 'break-after-page' : ''
+---
+
+<div class="mb-3" class:list={breakAfter}>
+  <H3>{clientName}</H3>
+  {skills && skills.length && <ul class="mb-1">{
+    skills.map((s) => <li class="inline-block p-1 leading-none rounded-sm bg-blue-600 text-white text-sm mr-1 last:mr-0">{s}</li>)}</ul>}
+  <!-- <H4>Responsibilites:</H4> -->
+  <ul class="list-disc list-inside">
+    {
+      responsibilities.map((r) => (
+        <li class="text-md">
+          <ResponsibilityEl responsibility={r} />
+        </li>
+      ))
+    }
+  </ul>
+</div>

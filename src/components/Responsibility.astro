@@ -1,0 +1,64 @@
+---
+type Emphasis = [start: number, end: number];
+
+export type Responsibility = {
+  text: string;
+  emphasis?: Emphasis[];
+};
+
+enum TextStyle {
+  NORMAL,
+  EMPHASIZED,
+}
+
+type Part = {
+  text: string;
+  style?: TextStyle;
+};
+
+interface Props {
+  responsibility: Responsibility;
+}
+
+const { text, emphasis }: Responsibility = Astro.props.responsibility;
+
+let parts: Part[];
+if (emphasis?.length) {
+  emphasis.sort((a, b) => a[0] - b[0]);
+  parts = emphasis.flatMap((em, i) => [
+    {
+      text: text.substring(emphasis[i - 1]?.[1] || 0, em[0]),
+      style: TextStyle.NORMAL,
+    },
+    { text: text.substring(em[0], em[1]), style: TextStyle.EMPHASIZED },
+  ]);
+
+  parts.push({
+    text: text.substring(emphasis[emphasis.length - 1][1]),
+    style: TextStyle.NORMAL,
+  });
+
+  parts = parts.filter((part) => part.text);
+} else {
+  parts = [{ text }];
+}
+---
+
+{
+  parts.map((part) =>
+    part.style === TextStyle.EMPHASIZED ? (
+      <span class="font-bold emphasis text-blue-800">{part.text}</span>
+    ) : (
+      part.text
+    ),
+  )
+}
+<!-- <style>
+  .emphasis {
+    background: linear-gradient(to bottom, green, blue);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+</style> -->

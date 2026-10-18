@@ -1,0 +1,305 @@
+---
+import type { Company } from "./Company.astro";
+import type { Project } from "./Project.astro";
+import CompanyEl from "./Company.astro";
+import ProjectEl from "./Project.astro";
+import H2 from "./typography/H2.astro";
+
+type Experience = {
+  company: Company;
+  projects: Project[];
+};
+
+const experiences: Experience[] = [
+  {
+    company: {
+      name: "CtrlAltFIX Solutions Pvt Ltd",
+      position: "Sr Software Engineer",
+      location: "Remote (Mumbai)",
+      startDate: new Date(2024, 7, 20),
+    },
+    projects: [
+      {
+        clientName: "Compact Construction Equipment",
+        responsibilities: [
+          {
+            text: "Non-blocking incremental migration of critical production apps from Vue 2 to Vue 3",
+            emphasis: [[0, 34]],
+          },
+          {
+            text: "Own complete pipeline of highly distributed projects ensuring smooth functioning from architecture right down to feature level",
+            emphasis: [[25, 52]],
+          },
+          {
+            text: "Operations support for business-critical issues on landing pages and service products",
+            emphasis: [[23, 40]],
+          },
+          // {
+          //   text: "Maintenance of ongoing projects, remediation of security issues, interfacing with external representatives for certain integrations",
+          // },
+          {
+            text: "Release management for owned projects as a Version Lead",
+            emphasis: [[0, 18]],
+          },
+          // {
+          //   text: "Automated sync of service documents to S3 improving security by enforcing OAuth access policy",
+          // },
+          {
+            text: "Reverse engineer & override built-in functionality of Magnolia CMS",
+          },
+          {
+            text: "Slimmed down cloud footprint by identifying and strategically reducing architectural debt which resulted in slightly lower operating costs & points of failure",
+          },
+          {
+            text: "Set up CloudWatch Alarms & Synthetic Canaries to improve reaction delays to any production level incidents",
+          },
+          // {
+          //   text: "Prompt incident addressal for issues coming in from customers",
+          // },
+        ],
+        skills: [
+          "AWS",
+          "Lambda",
+          "EKS",
+          "ElastiCache",
+          "API Gateway",
+          "CloudFormation",
+          "Vue",
+          "Node",
+          "Core Java",
+          "DynamoDB",
+          "Okta",
+        ],
+      },
+    ],
+  },
+  {
+    company: {
+      name: "Volga Infotech Pvt Ltd",
+      position: "Full-stack Developer",
+      location: "Mumbai",
+      startDate: new Date(2018, 6, 27),
+      endDate: new Date(2024, 7, 16),
+    },
+    projects: [
+      {
+        clientName: "Geofactor",
+        responsibilities: [
+          {
+            text: "Up to 600K Data Points visualized on a map with instant demographic filtering.",
+            emphasis: [[6, 22]],
+          },
+          {
+            text: "Migrated UI + Functionality from Vue to React.",
+          },
+          {
+            text: "Stateless NodeJS microservice to isolate interaction with 3rd-party service providers.",
+          },
+          {
+            text: "OAuth2 SSO as an identity provider for white labelling.",
+            emphasis: [[0, 10]],
+          },
+          // { text: "Following AGILE process for enhancement" },
+          {
+            text: "Diverse campaign management flow including Predictive Modelling, Digital Ads and Postcards.  Crafted a beautiful and cohesive tracking / analytical dashboard.",
+          },
+          {
+            text: "Boosted PageSpeed using Wordpress for reusable landing page templates.",
+            emphasis: [[0, 17]],
+          },
+        ],
+        skills: [
+          "Vue",
+          "React",
+          "Next.js",
+          "Node",
+          "S3",
+          "EC2",
+          "SES",
+          "Laravel",
+          "Wordpress",
+          "MySQL",
+        ],
+      },
+      {
+        clientName: "Custom Solution: Print Optimizer",
+        responsibilities: [
+          {
+            text: "100k Letter PDFs processed daily using OCR for reading address and overlaying barcodes.",
+          },
+          {
+            text: "1,000+ Parallel execution units of print sub-processes using MongoDB as master store.",
+            emphasis: [[0, 25]],
+          },
+          // {
+          //   text: "Scaled up NodeJS microservices for each sub-processing step using AWS Lambda.",
+          //   emphasis: [[66, 76]],
+          // },
+          {
+            text: "Strict SLA adherence, incident postmortems on Atlassian Confluence and resolution support.",
+          },
+        ],
+        skills: ["Node", "AWS Lambda", "MongoDB", "RabbitMQ"],
+      },
+      {
+        clientName: "EDDMStore",
+        responsibilities: [
+          {
+            text: "Canva-like design studio with personalized content for each recipient.",
+          },
+          {
+            text: "NodeJS microservice to Serve 200K+ EDDM Routes optimally cached in MongoDB.",
+            emphasis: [[23, 46]],
+          },
+          {
+            text: "NodeJS based Design to PDF automation microservice (puppeteer) for printing.",
+            emphasis: [[0, 19]],
+          },
+          {
+            text: "Flask Microservice to transform user customized design to a print ready format for 10k+ recipients.",
+          },
+          // {
+          //   text: "IndexedDB based custom state management to restore draft campaigns in milliseconds.",
+          // },
+          // {
+          //   text: "Extended mapbox with a custom-made polygon / geofence drawing plugin.",
+          // },
+          // {
+          //   text: "Adobe InDesign plugin to convert design templates into Web compatible format.",
+          //   emphasis: [[6, 21]],
+          // },
+        ],
+        skills: ["Node", "MongoDB", "Flask", "HTML5 Canvas", "Wordpress"],
+      },
+      {
+        clientName: "Talking Rhino",
+        responsibilities: [
+          {
+            text: "Designed a story/learning app for Amazon Alexa and Google Home using NodeJS and AWS Lambda.",
+          },
+          {
+            text: "Devised an advanced recognition algorithm to assess the child's spoken words for pronunciation accuracy. ",
+            emphasis: [[20, 41]],
+          },
+          {
+            text: "Integrated with Firebase to send targeted marketing and bulk scheduled notifications to users on Android and iOS.",
+          },
+          // {
+          //   text: "Complied with Google and Amazon's policies regarding apps for kids.",
+          // },
+        ],
+        skills: [
+          "Kotlin",
+          "Android",
+          "Core Java",
+          "Gradle",
+          "Angular",
+          "Laravel Lumen",
+        ],
+      },
+      {
+        clientName: "White-Labelled Investment Platform",
+        responsibilities: [
+          {
+            text: "Goal based investment app white-labelled by 5+ globally renowned banks.",
+            emphasis: [[44, 64]],
+          },
+          {
+            text: "Online Camera e-KYC using AWS Rekognition confidence scores.",
+            emphasis: [[0, 19]],
+          },
+          {
+            text: "Modularize monolithic app into compartments for role and white-label based activations.",
+            emphasis: [[48, 86]],
+          },
+          // { text: "HTML-to-PDF report generation using wkhtmltopdf." },
+          {
+            text: "Created a Progressive Web App (PWA) with Angular Material for a native-like app experience.",
+            emphasis: [[10, 35]],
+          },
+          // {
+          //   text: "Mentored junior developers and conducted code review discussions.",
+          // },
+        ],
+        skills: [
+          "Angular",
+          "Node",
+          "PM2",
+          "NativeScript",
+          "PWA",
+          "iOS",
+          "Android",
+        ],
+      },
+      {
+        clientName: "PICKL",
+        responsibilities: [
+          {
+            text: "Role-based UI feature activation (Brand, Admin, Superadmin).",
+          },
+          {
+            text: "Comprehensive analytics dashboard with metrics on revenue and engagement.",
+          },
+          {
+            text: "Impersonation - admins can perform any action on behalf of a brand.",
+            emphasis: [[0, 13]],
+          },
+          // { text: "Subscription and transaction systems powered by Stripe." },
+        ],
+        skills: ["Angular", "Laravel", "Linux", "AWS", "BitBucket"],
+      },
+      {
+        clientName: "Alumni Alliances",
+        responsibilities: [
+          {
+            text: "Developed a custom CRM for comprehensive user and resource management on the main site.",
+            emphasis: [[12, 22]],
+          },
+          {
+            text: "Enhanced SEO performance by leveraging Angular Universal to perform Server-Side Rendering on posts and user profiles.",
+            emphasis: [[39, 56]],
+          },
+          {
+            text: "Optimized marketing workflow with Conversion Tracking and solving Email Deliverability issues.",
+            emphasis: [
+              [34, 53],
+              [66, 86],
+            ],
+          },
+          {
+            text: "Established a Display Ads mechanism enabling 3rd party sellers to effectively market their products.",
+          },
+        ],
+        skills: ["Angular"],
+      },
+    ],
+  },
+];
+---
+
+<ol class="mb-3 grid gap-3 sm:grid-cols-2 2xl:grid-cols-3">
+  {
+    experiences.map((exp, i) => (
+      <li>
+        <CompanyEl company={exp.company} sequenceNumber={i + 1} />
+      </li>
+    ))
+  }
+</ol>
+<H2>Projects</H2>
+{
+  experiences
+    .flatMap((exp) => exp.projects)
+    .map((project, i) => <ProjectEl project={project} sequenceNumber={i + 1} />)
+}
+<!-- {
+  experiences.map((exp) => (
+    <div class="mb-3">
+      <CompanyEl company={exp.company} />
+
+      {/* {exp.projects.map((project, i) => (
+        <ProjectEl project={project} sequenceNumber={i + 1} />
+      ))} */}
+    </div>
+  ))
+} -->

@@ -1,0 +1,44 @@
+---
+const items = [
+  {
+    label: "Well-established",
+    description:
+      "8+ years of experience in SoftwareDevelopment with 6 years as a full-stack developer",
+  },
+  // {
+  //   label: "Varied Experience",
+  //   description:
+  //     "Worked with major frontend (Vue, Angular, React) and backend technologies (Node.js, Python, Java)",
+  // },
+  {
+    label: "Cloud Native",
+    description:
+      "Comprehensive cloud experience on AWS to design ideal solution for complex scenarios",
+  },
+  // {
+  //   label: "Cross Industry",
+  //   description:
+  //     "Extensive functional knowledge across diverse domains including Equipment, Mar-tech, Education, Social Networking, and Mutual Funds, ensuring versatile and adaptable solutions",
+  // },
+  {
+    label: "Full-stack Package",
+    description:
+      "Proficient in all phases of development from requirements gathering to architecture to coding and deployment",
+  },
+  // {
+  //   label: "Self-starter",
+  //   description:
+  //     "Service-based background allows me to morph seamlessly into any technical role.",
+  // },
+];
+---
+
+<ul>
+  {
+    items.map((li) => (
+      <li class="list-disc list-inside">
+        <em class="not-italic font-bold">{li.label}:</em> {li.description}
+      </li>
+    ))
+  }
+</ul>

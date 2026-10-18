@@ -1,0 +1,23 @@
+---
+import { Image } from "astro:assets";
+import profilePic from "../assets/profile_pic.jpg";
+import H1 from "./typography/H1.astro";
+import Subtitle from "./typography/Subtitle.astro";
+import Contact from "./Contact.astro";
+---
+
+<header class="flex items-center justify-between w-full mb-3 flex-wrap sm:flex-nowrap gap-3">
+	<div class="sm:mr-auto">
+		<H1>Vishal Biswas</H1>
+		<Subtitle>Senior Software Engineer</Subtitle>
+		<Subtitle>Andheri East, Mumbai</Subtitle>
+	</div>
+	<Contact class:list="order-2 sm:order-1 mx-auto sm:mr-0 self-stretch" />
+	<div class="order-1">
+		<Image
+			src={profilePic}
+			class="w-auto h-28 rounded-lg mx-auto"
+			alt="Vishal's pic"
+		/>
+	</div>
+</header>

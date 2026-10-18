@@ -1,0 +1,39 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Section from "../components/ui/Section.astro";
+import H2 from "../components/typography/H2.astro";
+import Banner from "../components/Banner.astro";
+import Summary from "../components/Summary.astro";
+import Skills from "../components/Skills.astro";
+import Experience from "../components/Experience.astro";
+import Education from "../components/Education.astro";
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<Layout>
+	<Banner />
+	<hr />
+	<main>
+		<div class="grid gap-x-4 lg:grid-cols-2">
+			<Section class:list={'print:hidden'}>
+				<H2>Summary</H2>
+				<Summary />
+			</Section>
+			<Section>
+				<H2>Skills</H2>
+				<Skills />
+			</Section>
+		</div>
+		<Section>
+			<H2>Professional Experience</H2>
+			<Experience />
+		</Section>
+	</main>
+	<hr />
+	<Section>
+		<H2>Education</H2>
+		<Education />
+	</Section>
+</Layout>

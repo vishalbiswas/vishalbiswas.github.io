@@ -1,0 +1,37 @@
+---
+import H3 from "./typography/H3.astro";
+import { getDurationTillNow, getDuration } from "../utils/date";
+
+export type Company = {
+  name: string;
+  position: string;
+  location: string;
+  startDate: Date;
+  endDate?: Date;
+};
+
+interface Props {
+  company: Company;
+  sequenceNumber: number;
+}
+
+const { name, position, location, startDate, endDate }: Company =
+  Astro.props.company;
+const sequenceNumber = Astro.props.sequenceNumber;
+
+const duration = endDate
+  ? getDuration(startDate, endDate)
+  : getDurationTillNow(startDate);
+---
+
+<div class="flex">
+  {sequenceNumber}.
+  <div class="ml-2 mb-3">
+    <H3>{name}</H3>
+    <ul>
+      <li>Duration: {duration} {!endDate && " (Present)"}</li>
+      <li>Positon: {position}</li>
+      <li>Location: {location}</li>
+    </ul>
+  </div>
+</div>
