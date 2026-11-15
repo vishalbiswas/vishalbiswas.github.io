@@ -1,6 +1,9 @@
 ---
-import { Font } from "astro:assets";
+import { Font, getImage } from "astro:assets";
+import profilePic from "../assets/profile_pic.jpg";
 import '../styles/global.css'
+
+const optimizedPic = await getImage({ src: profilePic });
 ---
 <!doctype html>
 <html lang="en">
@@ -12,7 +15,7 @@ import '../styles/global.css'
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content="Vishal Biswas, Senior Software Engineer" />
 		<meta name="og:title" content="Vishal Biswas" />
-		<meta name="og:image" content="/src/assets/profile_pic.jpg" />
+		<meta name="og:image" content={optimizedPic.src} />
 		<meta name="og:description" content="Senior Software Engineer with 8+ years of experience building full stack applications" />
 		<title>Vishal Biswas</title>
 		<Font cssVariable="--font-aleo" preload />
